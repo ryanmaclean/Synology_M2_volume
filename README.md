@@ -74,13 +74,13 @@ If you later update DSM and your M.2 drives are shown as unsupported and the sto
 ### Download the script
 
 ```bash
-wget 
+wget https://raw.githubusercontent.com/ryanmaclean/Synology_M2_volume/main/syno_create_m2_volume.sh
+chmod +x syno_create_m2_volume.sh
 ```
 
 ### To run the script
 
 ```YAML
-chmod +x syno_create_m2_volume.sh
 sudo -i ./syno_create_m2_volume.sh
 ```
 
