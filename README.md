@@ -1,8 +1,8 @@
-# Synology M2 volume
+# Synology M2 Volume Creation Bash Script
 
 ### Description
 
-Easily create an M.2 volume on Synology NAS without a lot of typing and no need for any how-to guides. And you ***don't*** need Synology branded NVMe drives.
+Create an M.2 volume on Synology NAS. You won't need Synology branded NVMe drives.
 
 - **DSM 7** This script creates the RAID and storage pool on your NVMe drive(s) so you can then create the volume in the DSM GUI.
 - **DSM 6** This script creates the RAID, storage pool and volume on your NVMe drive(s) for you.
@@ -73,12 +73,15 @@ If you later update DSM and your M.2 drives are shown as unsupported and the sto
 
 ### Download the script
 
-See <a href=images/how_to_download_generic.png/>How to download the script</a> for the easiest way to download the script.
+```bash
+wget 
+```
 
 ### To run the script
 
 ```YAML
-sudo -i /volume1/scripts/syno_create_m2_volume.sh
+chmod +x syno_create_m2_volume.sh
+sudo -i ./syno_create_m2_volume.sh
 ```
 
 **Note:** Replace /volume1/scripts/ with the path to where the script is located.
@@ -98,18 +101,18 @@ It also has a dry run mode so you can see what it would have done had you run it
 ### What to do after running the script
 
 **DSM 7**
-1. Restart the Synology NAS.
+1. Restart the Synology NAS
 2. Go to Storage Manager and select Online Assemble:
     - Storage Pool > Available Pool > Online Assemble
 3. Create the volume as you normally would:
     - Select the new Storage Pool > Create > Create Volume.
-    - Set the allocated size.
-      - Optionally enter a volume description. Be creative :)
-    - Click Next.
-    - Select the file system (Btrfs or ext4) and click Next.
-    - Optionally enable *Encrypt this volume* and click Next.
-      - Create an encryption password or enter your existing encryption password. 
-    - Confirm your settings and click Apply to finish creating your M.2 volume.
+    - Set the allocated size
+      - Optionally enter a volume description
+    - Click Next
+    - Select the file system (Btrfs or ext4) and click Next
+    - Optionally enable *Encrypt this volume* and click Next
+      - Create an encryption password or enter your existing encryption password.
+    - Confirm your settings and click Apply to finish creating your M.2 volume
 4. Optionally enable and schedule TRIM:
     - Storage Pool > ... > Settings > SSD TRIM    
     - **Note: DSM 7.1.1. has no SSD TRIM setting for M.2 storage pools**
@@ -146,5 +149,3 @@ It also has a dry run mode so you can see what it would have done had you run it
 
 <p align="center">Enable TRIM</p>
 <p align="center"><img src="/images/create_m2_volume_enable_trim.png"></p>
-
-
